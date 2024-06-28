@@ -1,0 +1,77 @@
+ Checking connection lifetime of 300 seconds
+INFO 2024-06-28T10:53:39.640Z Routing driver 0 created for server address 34.204.2.124:7687
+2024-06-28T10:53:39.645Z Initial connection Successful. Sleeping for 5 minutes ...
+INFO 2024-06-28T10:53:39.647Z Routing table is stale for database: "neo4j" and access mode: "READ": RoutingTable[database=neo4j, expirationTime=0, currentTime=1719572019647, routers=[], readers=[], writers=[]]
+DEBUG 2024-06-28T10:53:40.062Z Connection [0][] created towards 34.204.2.124:7687(34.204.2.124)
+DEBUG 2024-06-28T10:53:40.063Z Connection [0][] C: HELLO {"user_agent":"neo4j-javascript/5.21.0","bolt_agent":{"product":"neo4j-javascript/5.21.0","platform":"linux 6.5.0-1022-azure; x64","language_details":"Node/20.11.1 (v8 11.3.244.8-node.17)"},"routing":{"address":"34.204.2.124:7687"}}
+DEBUG 2024-06-28T10:53:40.065Z Connection [0][] C: LOGON { ... }
+DEBUG 2024-06-28T10:53:40.271Z Connection [0][] S: SUCCESS {"signature":112,"fields":[{"server":"Neo4j/5.20.0","connection_id":"bolt-10","hints":{"connection.recv_timeout_seconds":{"low":120,"high":0}}}]}
+DEBUG 2024-06-28T10:53:40.272Z Connection [0][] S: SUCCESS {"signature":112,"fields":[{}]}
+DEBUG 2024-06-28T10:53:40.272Z Connection [0][bolt-10] created for the pool 34.204.2.124:7687
+DEBUG 2024-06-28T10:53:40.272Z Connection [0][bolt-10] acquired from the pool 34.204.2.124:7687
+DEBUG 2024-06-28T10:53:40.273Z Connection [0][bolt-10] C: ROUTE {"address":"34.204.2.124:7687"} [] {"db":"neo4j"}
+DEBUG 2024-06-28T10:53:40.479Z Connection [0][bolt-10] S: SUCCESS {"signature":112,"fields":[{"rt":{"servers":[{"addresses":["34.204.2.124:7687"],"role":"WRITE"},{"addresses":["34.204.2.124:7687"],"role":"READ"},{"addresses":["34.204.2.124:7687"],"role":"ROUTE"}],"ttl":{"low":300,"high":0},"db":"neo4j"}}]}
+DEBUG 2024-06-28T10:53:40.480Z Connection [0][bolt-10] released to the pool 34.204.2.124:7687
+INFO 2024-06-28T10:53:40.482Z Updated routing table RoutingTable[database=neo4j, expirationTime=1719572320480, currentTime=1719572020482, routers=[34.204.2.124:7687], readers=[34.204.2.124:7687], writers=[34.204.2.124:7687]]
+DEBUG 2024-06-28T10:53:40.483Z Connection [0][bolt-10] acquired from the pool 34.204.2.124:7687
+DEBUG 2024-06-28T10:53:40.483Z Connection [0][bolt-10] acquired from the pool 34.204.2.124:7687
+DEBUG 2024-06-28T10:53:40.484Z Connection [0][bolt-10] C: BEGIN {"db":"neo4j","mode":"r"}
+DEBUG 2024-06-28T10:53:40.485Z Connection [0][bolt-10] C: RUN RETURN 1 AS n {} {}
+DEBUG 2024-06-28T10:53:40.485Z Connection [0][bolt-10] C: PULL {"n":{"low":1000,"high":0}}
+DEBUG 2024-06-28T10:53:40.689Z Connection [0][bolt-10] S: SUCCESS {"signature":112,"fields":[{}]}
+DEBUG 2024-06-28T10:53:40.898Z Connection [0][bolt-10] S: SUCCESS {"signature":112,"fields":[{"t_first":{"low":4,"high":0},"fields":["n"],"qid":{"low":0,"high":0}}]}
+DEBUG 2024-06-28T10:53:40.899Z Connection [0][bolt-10] S: RECORD {"signature":113,"fields":[[{"low":1,"high":0}]]}
+DEBUG 2024-06-28T10:53:40.899Z Connection [0][bolt-10] S: SUCCESS {"signature":112,"fields":[{"type":"r","t_last":{"low":1,"high":0},"db":"neo4j"}]}
+2024-06-28T10:54:39.674ZStill running. Sleeping for 4 more minute(s) ...
+2024-06-28T10:55:39.732ZStill running. Sleeping for 3 more minute(s) ...
+2024-06-28T10:56:39.787ZStill running. Sleeping for 2 more minute(s) ...
+2024-06-28T10:57:39.834ZStill running. Sleeping for 1 more minute(s) ...
+2024-06-28T10:58:39.894Z Awake now. Checking the connection ...
+2024-06-28T10:58:39.895Z connection is active
+The connection was valid after 300 seconds of idle time...
+DEBUG 2024-06-28T10:58:39.895Z Connection [0][bolt-10] C: RUN RETURN 1 AS n {} {}
+DEBUG 2024-06-28T10:58:39.895Z Connection [0][bolt-10] C: PULL {"n":{"low":1000,"high":0}}
+DEBUG 2024-06-28T10:58:40.106Z Connection [0][bolt-10] S: SUCCESS {"signature":112,"fields":[{"t_first":{"low":2,"high":0},"fields":["n"],"qid":{"low":1,"high":0}}]}
+DEBUG 2024-06-28T10:58:40.108Z Connection [0][bolt-10] S: RECORD {"signature":113,"fields":[[{"low":1,"high":0}]]}
+DEBUG 2024-06-28T10:58:40.108Z Connection [0][bolt-10] S: SUCCESS {"signature":112,"fields":[{"type":"r","t_last":{"low":2,"high":0},"db":"neo4j"}]}
+ Checking connection lifetime of 600 seconds
+INFO 2024-06-28T10:58:41.897Z Routing driver 1 created for server address 34.204.2.124:7687
+2024-06-28T10:58:41.898Z Initial connection Successful. Sleeping for 10 minutes ...
+INFO 2024-06-28T10:58:41.898Z Routing table is stale for database: "neo4j" and access mode: "READ": RoutingTable[database=neo4j, expirationTime=0, currentTime=1719572321898, routers=[], readers=[], writers=[]]
+DEBUG 2024-06-28T10:58:42.310Z Connection [1][] created towards 34.204.2.124:7687(34.204.2.124)
+DEBUG 2024-06-28T10:58:42.310Z Connection [1][] C: HELLO {"user_agent":"neo4j-javascript/5.21.0","bolt_agent":{"product":"neo4j-javascript/5.21.0","platform":"linux 6.5.0-1022-azure; x64","language_details":"Node/20.11.1 (v8 11.3.244.8-node.17)"},"routing":{"address":"34.204.2.124:7687"}}
+DEBUG 2024-06-28T10:58:42.311Z Connection [1][] C: LOGON { ... }
+DEBUG 2024-06-28T10:58:42.517Z Connection [1][] S: SUCCESS {"signature":112,"fields":[{"server":"Neo4j/5.20.0","connection_id":"bolt-12","hints":{"connection.recv_timeout_seconds":{"low":120,"high":0}}}]}
+DEBUG 2024-06-28T10:58:42.519Z Connection [1][] S: SUCCESS {"signature":112,"fields":[{}]}
+DEBUG 2024-06-28T10:58:42.519Z Connection [1][bolt-12] created for the pool 34.204.2.124:7687
+DEBUG 2024-06-28T10:58:42.519Z Connection [1][bolt-12] acquired from the pool 34.204.2.124:7687
+DEBUG 2024-06-28T10:58:42.520Z Connection [1][bolt-12] C: ROUTE {"address":"34.204.2.124:7687"} [] {"db":"neo4j"}
+DEBUG 2024-06-28T10:58:42.726Z Connection [1][bolt-12] S: SUCCESS {"signature":112,"fields":[{"rt":{"servers":[{"addresses":["34.204.2.124:7687"],"role":"WRITE"},{"addresses":["34.204.2.124:7687"],"role":"READ"},{"addresses":["34.204.2.124:7687"],"role":"ROUTE"}],"ttl":{"low":300,"high":0},"db":"neo4j"}}]}
+DEBUG 2024-06-28T10:58:42.726Z Connection [1][bolt-12] released to the pool 34.204.2.124:7687
+INFO 2024-06-28T10:58:42.727Z Updated routing table RoutingTable[database=neo4j, expirationTime=1719572622726, currentTime=1719572322727, routers=[34.204.2.124:7687], readers=[34.204.2.124:7687], writers=[34.204.2.124:7687]]
+DEBUG 2024-06-28T10:58:42.727Z Connection [1][bolt-12] acquired from the pool 34.204.2.124:7687
+DEBUG 2024-06-28T10:58:42.727Z Connection [1][bolt-12] acquired from the pool 34.204.2.124:7687
+DEBUG 2024-06-28T10:58:42.727Z Connection [1][bolt-12] C: BEGIN {"db":"neo4j","mode":"r"}
+DEBUG 2024-06-28T10:58:42.728Z Connection [1][bolt-12] C: RUN RETURN 1 AS n {} {}
+DEBUG 2024-06-28T10:58:42.728Z Connection [1][bolt-12] C: PULL {"n":{"low":1000,"high":0}}
+DEBUG 2024-06-28T10:58:42.935Z Connection [1][bolt-12] S: SUCCESS {"signature":112,"fields":[{}]}
+DEBUG 2024-06-28T10:58:43.144Z Connection [1][bolt-12] S: SUCCESS {"signature":112,"fields":[{"t_first":{"low":3,"high":0},"fields":["n"],"qid":{"low":0,"high":0}}]}
+DEBUG 2024-06-28T10:58:43.146Z Connection [1][bolt-12] S: RECORD {"signature":113,"fields":[[{"low":1,"high":0}]]}
+DEBUG 2024-06-28T10:58:43.146Z Connection [1][bolt-12] S: SUCCESS {"signature":112,"fields":[{"type":"r","t_last":{"low":1,"high":0},"db":"neo4j"}]}
+2024-06-28T10:59:41.925ZStill running. Sleeping for 9 more minute(s) ...
+2024-06-28T11:00:41.927ZStill running. Sleeping for 8 more minute(s) ...
+2024-06-28T11:01:41.985ZStill running. Sleeping for 7 more minute(s) ...
+2024-06-28T11:02:42.042ZStill running. Sleeping for 6 more minute(s) ...
+2024-06-28T11:03:42.043ZStill running. Sleeping for 5 more minute(s) ...
+2024-06-28T11:04:42.102ZStill running. Sleeping for 4 more minute(s) ...
+2024-06-28T11:05:42.161ZStill running. Sleeping for 3 more minute(s) ...
+2024-06-28T11:06:42.219ZStill running. Sleeping for 2 more minute(s) ...
+2024-06-28T11:07:42.278ZStill running. Sleeping for 1 more minute(s) ...
+2024-06-28T11:08:42.338Z Awake now. Checking the connection ...
+2024-06-28T11:08:42.339Z connection is active
+The connection was valid after 600 seconds of idle time...
+DEBUG 2024-06-28T11:08:42.339Z Connection [1][bolt-12] C: RUN RETURN 1 AS n {} {}
+DEBUG 2024-06-28T11:08:42.339Z Connection [1][bolt-12] C: PULL {"n":{"low":1000,"high":0}}
+DEBUG 2024-06-28T11:08:42.542Z Connection [1][bolt-12] S: SUCCESS {"signature":112,"fields":[{"t_first":{"low":3,"high":0},"fields":["n"],"qid":{"low":1,"high":0}}]}
+DEBUG 2024-06-28T11:08:42.544Z Connection [1][bolt-12] S: RECORD {"signature":113,"fields":[[{"low":1,"high":0}]]}
+DEBUG 2024-06-28T11:08:42.544Z Connection [1][bolt-12] S: SUCCESS {"signature":112,"fields":[{"type":"r","t_last":{"low":1,"high":0},"db":"neo4j"}]}

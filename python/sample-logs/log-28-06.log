@@ -1,0 +1,133 @@
+
+2024-06-28 10:53:08.235353 This script will check if connections idle after the following lifetime values are still usable(seconds):
+                 240, 300, 600
+
+If you see a 'Private URI',for the instance in the Aura Console, please enter that as Public Traffic has likely been disabled for your instance.
+
+Examples for expected conenction URI:
+neo4j+s://a1b2c3d4.databases.neo4j.io
+neo4j+s://a1b2c3d4.production-orch-0001.neo4j.io
+
+2024-06-28 10:53:08.235922 Attempting to connect to neo4j://34.204.2.124:7687
+
+2024-06-28 10:53:08.236192 Checking connection lifetime of 240 seconds
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:08,236  [#0000]  _: <POOL> created, routing address IPv4Address(('34.204.2.124', 7687))
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:08,237  [#0000]  _: <POOL> acquire routing connection, access_mode='READ', database='neo4j'
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:08,237  [#0000]  _: <ROUTING> checking table freshness (readonly=True): table expired=True, has_server_for_mode=False, table routers={IPv4Address(('34.204.2.124', 7687))} => False
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:08,237  [#0000]  _: <POOL> attempting to update routing table from IPv4Address(('34.204.2.124', 7687))
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:08,237  [#0000]  _: <RESOLVE> in: 34.204.2.124:7687
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:08,270  [#0000]  _: <RESOLVE> dns resolver out: 34.204.2.124:7687
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:08,270  [#0000]  _: <POOL> _acquire router connection, database='neo4j', address=ResolvedIPv4Address(('34.204.2.124', 7687))
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:08,271  [#0000]  _: <POOL> trying to hand out new connection
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:08,271  [#0000]  C: <OPEN> 34.204.2.124:7687
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:08,478  [#D960]  C: <MAGIC> 0x6060B017
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:08,479  [#D960]  C: <HANDSHAKE> 0x00050505 0x00020404 0x00000104 0x00000003
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:08,679  [#D960]  S: <HANDSHAKE> 0x00000405
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:08,679  [#D960]  C: HELLO {'user_agent': 'neo4j-python/5.22.0 Python/3.10.13-final-0 (linux)', 'routing': {'address': '34.204.2.124:7687'}, 'bolt_agent': {'product': 'neo4j-python/5.22.0', 'platform': 'Linux 6.5.0-1022-azure; x86_64', 'language': 'Python/3.10.13-final-0', 'language_details': 'CPython; 3.10.13-final-0 (main, Mar 21 2024 17:51:02) [GCC 9.4.0]'}}
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:08,680  [#D960]  _: <CONNECTION> client state: CONNECTED > AUTHENTICATION
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:08,680  [#D960]  C: LOGON {'scheme': 'basic', 'principal': 'neo4j', 'credentials': '*******'}
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:08,680  [#D960]  _: <CONNECTION> client state: AUTHENTICATION > READY
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:08,881  [#D960]  S: SUCCESS {'server': 'Neo4j/5.20.0', 'connection_id': 'bolt-9', 'hints': {'connection.recv_timeout_seconds': 120}}
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:08,881  [#D960]  _: <CONNECTION> server state: CONNECTED > AUTHENTICATION
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:08,884  [#D960]  S: SUCCESS {}
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:08,884  [#D960]  _: <CONNECTION> server state: AUTHENTICATION > READY
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:08,884  [#D960]  C: ROUTE {'address': '34.204.2.124:7687'} () {'db': 'neo4j'}
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:09,085  [#D960]  S: SUCCESS {'rt': {'servers': [{'addresses': ['34.204.2.124:7687'], 'role': 'WRITE'}, {'addresses': ['34.204.2.124:7687'], 'role': 'READ'}, {'addresses': ['34.204.2.124:7687'], 'role': 'ROUTE'}], 'ttl': 300, 'db': 'neo4j'}}
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:09,085  [#D960]  _: <POOL> released bolt-9
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:09,085  [#0000]  _: <ROUTING> updated table=RoutingTable(database='neo4j' routers={IPv4Address(('34.204.2.124', 7687))}, readers={IPv4Address(('34.204.2.124', 7687))}, writers={IPv4Address(('34.204.2.124', 7687))}, last_updated_time=165.764405454, ttl=300)
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:09,086  [#0000]  _: <POOL> update routing table from address=ResolvedIPv4Address(('34.204.2.124', 7687)) (RoutingTable(database='neo4j' routers={IPv4Address(('34.204.2.124', 7687))}, readers={IPv4Address(('34.204.2.124', 7687))}, writers={IPv4Address(('34.204.2.124', 7687))}, last_updated_time=165.764405454, ttl=300))
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:09,086  [#0000]  _: <POOL> acquire address, database='neo4j' address=IPv4Address(('34.204.2.124', 7687))
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:09,086  [#D960]  _: <POOL> picked existing connection bolt-9
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:09,086  [#D960]  _: <POOL> checked re_auth auth=None updated=False force=False
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:09,086  [#D960]  _: <POOL> handing out existing connection
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:09,087  [#D960]  C: BEGIN {'mode': 'r', 'db': 'neo4j'}
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:09,087  [#D960]  _: <CONNECTION> client state: READY > TX_READY_OR_TX_STREAMING
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:09,292  [#D960]  S: SUCCESS {}
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:09,292  [#D960]  _: <CONNECTION> server state: READY > TX_READY_OR_TX_STREAMING
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:09,292  [#D960]  C: RUN 'RETURN 1 AS n' {} {}
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:09,292  [#D960]  C: PULL {'n': 1000}
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:53:09,497  [#D960]  S: SUCCESS {'t_first': 3, 'fields': ['n'], 'qid': 0}
+2024-06-28 10:53:09.498154 Initial connection Successful. Sleeping for 4 minutes ...
+2024-06-28 10:54:09.558397 Still running. Sleeping for 3 more minute(s) ...
+2024-06-28 10:55:09.617761 Still running. Sleeping for 2 more minute(s) ...
+2024-06-28 10:56:09.677468 Still running. Sleeping for 1 more minute(s) ...
+2024-06-28 10:57:09.734485 Awake now. Checking the connection ...
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:09,734  [#D960]  C: RUN 'RETURN 1 AS n' {} {}
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:09,735  [#D960]  C: PULL {'n': 1000}
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:09,735  [#D960]  S: RECORD * 1
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:09,735  [#D960]  S: SUCCESS {'type': 'r', 't_last': 1, 'db': 'neo4j'}
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:09,943  [#D960]  S: SUCCESS {'t_first': 2, 'fields': ['n'], 'qid': 1}
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:09,944  [#D960]  S: RECORD * 1
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:09,945  [#D960]  S: SUCCESS {'type': 'r', 't_last': 1, 'db': 'neo4j'}
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:09,945  [#D960]  C: COMMIT
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:09,945  [#D960]  _: <CONNECTION> client state: TX_READY_OR_TX_STREAMING > READY
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,151  [#D960]  S: SUCCESS {'bookmark': 'FB:kcwQoeylp8kPT3ut3xIj7Pc8cQOQ'}
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,151  [#D960]  _: <CONNECTION> server state: TX_READY_OR_TX_STREAMING > READY
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,152  [#D960]  _: <POOL> released bolt-9
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,152  [#0000]  _: <POOL> close
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,152  [#D960]  C: GOODBYE
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,152  [#D960]  C: <CLOSE>
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,152  [#0000]  _: <POOL> close
+2024-06-28 10:57:10.152831 The connection was valid after 240 seconds of idle time...
+
+2024-06-28 10:57:10.153118 Checking connection lifetime of 300 seconds
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,153  [#0000]  _: <POOL> created, routing address IPv4Address(('34.204.2.124', 7687))
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,153  [#0000]  _: <POOL> acquire routing connection, access_mode='READ', database='neo4j'
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,153  [#0000]  _: <ROUTING> checking table freshness (readonly=True): table expired=True, has_server_for_mode=False, table routers={IPv4Address(('34.204.2.124', 7687))} => False
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,154  [#0000]  _: <POOL> attempting to update routing table from IPv4Address(('34.204.2.124', 7687))
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,154  [#0000]  _: <RESOLVE> in: 34.204.2.124:7687
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,154  [#0000]  _: <RESOLVE> dns resolver out: 34.204.2.124:7687
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,154  [#0000]  _: <POOL> _acquire router connection, database='neo4j', address=ResolvedIPv4Address(('34.204.2.124', 7687))
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,154  [#0000]  _: <POOL> trying to hand out new connection
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,154  [#0000]  C: <OPEN> 34.204.2.124:7687
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,364  [#CD4E]  C: <MAGIC> 0x6060B017
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,364  [#CD4E]  C: <HANDSHAKE> 0x00050505 0x00020404 0x00000104 0x00000003
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,574  [#CD4E]  S: <HANDSHAKE> 0x00000405
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,574  [#CD4E]  C: HELLO {'user_agent': 'neo4j-python/5.22.0 Python/3.10.13-final-0 (linux)', 'routing': {'address': '34.204.2.124:7687'}, 'bolt_agent': {'product': 'neo4j-python/5.22.0', 'platform': 'Linux 6.5.0-1022-azure; x86_64', 'language': 'Python/3.10.13-final-0', 'language_details': 'CPython; 3.10.13-final-0 (main, Mar 21 2024 17:51:02) [GCC 9.4.0]'}}
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,574  [#CD4E]  _: <CONNECTION> client state: CONNECTED > AUTHENTICATION
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,574  [#CD4E]  C: LOGON {'scheme': 'basic', 'principal': 'neo4j', 'credentials': '*******'}
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,575  [#CD4E]  _: <CONNECTION> client state: AUTHENTICATION > READY
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,785  [#CD4E]  S: SUCCESS {'server': 'Neo4j/5.20.0', 'connection_id': 'bolt-11', 'hints': {'connection.recv_timeout_seconds': 120}}
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,785  [#CD4E]  _: <CONNECTION> server state: CONNECTED > AUTHENTICATION
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,786  [#CD4E]  S: SUCCESS {}
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,786  [#CD4E]  _: <CONNECTION> server state: AUTHENTICATION > READY
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,786  [#CD4E]  C: ROUTE {'address': '34.204.2.124:7687'} () {'db': 'neo4j'}
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,997  [#CD4E]  S: SUCCESS {'rt': {'servers': [{'addresses': ['34.204.2.124:7687'], 'role': 'WRITE'}, {'addresses': ['34.204.2.124:7687'], 'role': 'READ'}, {'addresses': ['34.204.2.124:7687'], 'role': 'ROUTE'}], 'ttl': 300, 'db': 'neo4j'}}
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,997  [#CD4E]  _: <POOL> released bolt-11
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,998  [#0000]  _: <ROUTING> updated table=RoutingTable(database='neo4j' routers={IPv4Address(('34.204.2.124', 7687))}, readers={IPv4Address(('34.204.2.124', 7687))}, writers={IPv4Address(('34.204.2.124', 7687))}, last_updated_time=407.676611155, ttl=300)
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,998  [#0000]  _: <POOL> update routing table from address=ResolvedIPv4Address(('34.204.2.124', 7687)) (RoutingTable(database='neo4j' routers={IPv4Address(('34.204.2.124', 7687))}, readers={IPv4Address(('34.204.2.124', 7687))}, writers={IPv4Address(('34.204.2.124', 7687))}, last_updated_time=407.676611155, ttl=300))
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,998  [#0000]  _: <POOL> acquire address, database='neo4j' address=IPv4Address(('34.204.2.124', 7687))
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,998  [#CD4E]  _: <POOL> picked existing connection bolt-11
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,998  [#CD4E]  _: <POOL> checked re_auth auth=None updated=False force=False
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,998  [#CD4E]  _: <POOL> handing out existing connection
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,998  [#CD4E]  C: BEGIN {'mode': 'r', 'db': 'neo4j'}
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:10,999  [#CD4E]  _: <CONNECTION> client state: READY > TX_READY_OR_TX_STREAMING
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:11,210  [#CD4E]  S: SUCCESS {}
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:11,210  [#CD4E]  _: <CONNECTION> server state: READY > TX_READY_OR_TX_STREAMING
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:11,210  [#CD4E]  C: RUN 'RETURN 1 AS n' {} {}
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:11,210  [#CD4E]  C: PULL {'n': 1000}
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 10:57:11,443  [#CD4E]  S: SUCCESS {'t_first': 23, 'fields': ['n'], 'qid': 0}
+2024-06-28 10:57:11.444050 Initial connection Successful. Sleeping for 5 minutes ...
+2024-06-28 10:58:11.503497 Still running. Sleeping for 4 more minute(s) ...
+2024-06-28 10:59:11.562983 Still running. Sleeping for 3 more minute(s) ...
+2024-06-28 11:00:11.622218 Still running. Sleeping for 2 more minute(s) ...
+2024-06-28 11:01:11.681470 Still running. Sleeping for 1 more minute(s) ...
+2024-06-28 11:02:11.738716 Awake now. Checking the connection ...
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 11:02:11,739  [#CD4E]  C: RUN 'RETURN 1 AS n' {} {}
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 11:02:11,739  [#CD4E]  C: PULL {'n': 1000}
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 11:02:11,739  [#CD4E]  S: RECORD * 1
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 11:02:11,739  [#CD4E]  S: SUCCESS {'type': 'r', 't_last': 2, 'db': 'neo4j'}
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 11:04:11,839  [#CD4E]  _: <CONNECTION> error: TimeoutError('timed out')
+[ERROR   ] [Thread 123667322876544] [Task None] 2024-06-28 11:04:11,839  Failed to read from defunct connection ResolvedIPv4Address(('34.204.2.124', 7687)) (ResolvedIPv4Address(('34.204.2.124', 7687)))
+ERROR:neo4j.io:Failed to read from defunct connection ResolvedIPv4Address(('34.204.2.124', 7687)) (ResolvedIPv4Address(('34.204.2.124', 7687)))
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 11:04:11,839  [#CD4E]  C: <CLOSE>
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 11:04:11,840  [#0000]  _: <POOL> deactivating address ResolvedIPv4Address(('34.204.2.124', 7687))
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 11:04:11,840  [#0000]  _: <POOL> table={'neo4j': RoutingTable(database='neo4j' routers={}, readers={}, writers={}, last_updated_time=407.676611155, ttl=300)}
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 11:04:11,840  [#CD4E]  _: <POOL> released bolt-11
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 11:04:11,840  [#0000]  _: <POOL> close
+2024-06-28 11:04:11.840842 Session Expired for connection with idle time of 300 seconds 
+[DEBUG   ] [Thread 123667322876544] [Task None] 2024-06-28 11:04:11,841  [#0000]  _: <POOL> close
+2024-06-28 11:04:11.841228 The connection FAILED after 300 seconds of idle time...
+2024-06-28 11:04:11.841343 Recommended Connection lifetime : 230 seconds or lesser
+2024-06-28 11:04:11.841573 The longest running valid connection was 240 seconds old.
+2024-06-28 11:04:11.841800 The recommended value is 10 seconds lesser than this 
